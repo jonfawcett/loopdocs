@@ -50,17 +50,17 @@ What's new in Loop v2.0?
 What is the difference between Loop v2.0 and dev branch?
 Should I update if I use dev branch now?
 
-The question about what differences someone will notice between their existing Loop app and the new release...well I can only answer that if I knew which version/branch you are currently using (AND what date you built on if you are using dev branch). Because dev branch changes so often, the version someone is using from October 2019 won't necessarily be the same as the version someone build in November 2019.
+The question about what differences someone will notice between their existing Loop app and the new release...well I can only answer that if I knew which version/branch you are currently using (AND what date you built on if you are using dev branch). Because dev branch changes so often, the version someone is using from October 2019 won't necessarily be the same as the version someone built in November 2019.
 
 So, I'll make a highlights reel compared to the last release and you can check it over to see if any of these seem "new" to you based on the version of Loop you have been using. They are listed roughly in reverse order of when they were merged into dev, so the higher up on the list, the greater the chance is that you haven't seen the feature yet.
 
 ### Uploading of BGs to Nightscout
 
-Loop v2.0 has an option to upload your BG data to Nightscout directly. It is a new slider under the CGM configuration section for Dexcom users. After you add your CGM transmitter ID, go back into the CGM info and you'll see a new slider called "Upload Readings".  Technically, Loop's dev branch had that feature for a hot minute before Loop v2.0 was released...but for almost everyone this will be a brand new feature they haven't had before. This feature can help if/when Dexcom's Share servers ever go through another large outage like we had before. If that happens, you can turn on the "Upload Readings" switch and you're CGM data will now be in Nightscout even without Share servers working properly. Good practice would be to temporarily disable your Share bridge in Nightscout while Loop is responsible for CGM uploading so that you don't get duplicate data. You can disable Share bridge by logging into your Heroku account, going to the Settings tab, clicking on "reveal config vars" and then deleting the word "bridge" from the ENABLE line.
+Loop v2.0 has an option to upload your BG data to Nightscout directly. It is a new slider under the CGM configuration section for Dexcom users. After you add your CGM transmitter ID, go back into the CGM info and you'll see a new slider called "Upload Readings."  Technically, Loop's dev branch had that feature for a hot minute before Loop v2.0 was released...but for almost everyone this will be a brand new feature they haven't had before. This feature can help if/when Dexcom's Share servers ever go through another large outage like we had before. If that happens, you can turn on the "Upload Readings" switch and your CGM data will now be in Nightscout even without Share servers working properly. Good practice would be to temporarily disable your Share bridge in Nightscout while Loop is responsible for CGM uploading so that you don't get duplicate data. You can disable Share bridge by logging into your Heroku account, going to the Settings tab, clicking on "reveal config vars" and then deleting the word "bridge" from the ENABLE line.
 
 ### A fix for settings loss
 
-iOS 13 brought about a quirky little bug where you could suddenly lose settings in Loop. But, it wasn't just limited to Loop, sometimes people lost Dexcom app settings too. The issue is most common when the phone goes through a power cycle, but it has happened at other times, too. There's a fix for that new bug in Loop now...so that's a good reason to update. (If you encounter that bug appear before you have a chance to update your Loop app, simply restart the Loop app and your settings should reappear. )
+iOS 13 brought about a quirky little bug where you could suddenly lose settings in Loop. But, it wasn't just limited to Loop, sometimes people lost Dexcom app settings too. The issue is most common when the phone goes through a power cycle, but it has happened at other times, too. There's a fix for that new bug in Loop now...so that's a good reason to update. (If you encounter that bug before you have a chance to update your Loop app, simply restart the Loop app and your settings should reappear.)
 
 ### Spin for Watch Bolus
 
@@ -96,7 +96,7 @@ There are a lot of niggly little bug fixes too which were merged in the last cou
 
 ### User interface improvements
 
-You'll notice dashed lines in the HUD for the CGM value if the CGM data goes older than 15 min (that way you don't accidentally miss the fact that your CGM has failed). The API Secret is hidden after it is saved in Loop Settings now, and if you accidentally leave a trailing slash on the Nightscout URL...Loop will ignore it.  The bolus progress row is new to master branch now, although many of you have been accustomed to that visual in dev branch for awhile now. The "Scenarios" screen, that would sometimes appear when a phone was shaken, is also disabled by default now. The Issue Report has more information about your Loop app's build date and version so that you can more easily track its build history.
+You'll notice dashed lines in the HUD for the CGM value if the CGM data goes older than 15 min (that way you don't accidentally miss the fact that your CGM has failed). The API Secret is hidden after it is saved in Loop Settings now, and if you accidentally leave a trailing slash on the Nightscout URL...Loop will ignore it.  The bolus progress row is new to master branch now, although many of you have been accustomed to that visual in dev branch for awhile now. The "Scenarios" screen that would sometimes appear when a phone was shaken is also disabled by default now. The Issue Report has more information about your Loop app's build date and version so that you can more easily track its build history.
 
 ### Common build error squashed
 
@@ -188,11 +188,19 @@ If you click on the commit, you can see exactly what changes to the code were ma
 <p align="center">
 <img src="../img/commit.png" width="550">
 </p>
-
 I don't expect many of you would understand exactly what the edits mean, or how the new code might function...but I bring up the topic of commit history so that you can use that to realize just how often dev is updated. Go ahead and look at the number and frequency of commits in that dev branch...that is why there is no way someone is going to keep a "loopdocs" of dev changes. It's just too much a moving target.
 
 ### Keep checking Looped group
 Third, keep watching Looped group. Major concerns/issues are brought up there...so no harm in scrolling through and seeing what's going on there.
+
+### LoopDashboard.org
+You can always check out the <a href="https://www.loopdashboard.org/">LoopDashboard</a>  which summarize all the github activities in Loops 7 different repositories for dev and master branches. Here you can always see the latest "news" and  the history of Loop. 
+<br>
+On the first page of loopdashboard you can see all the activities in one list, but you can also go to other pages and see more details about commits, issues and pull requests. There are also stats about who is doing the pull requests and commits.<br>
+The dashboard is updated every 12 hours.
+<p align="center">
+<img src="../img/loopdashboard.png" width="550">
+</p>
 
 ### Become familiar with your data sources
 Another useful thing if you'll be on dev branches undergoing a lot of active change...know how Loop works and where to look for additional information about what you are seeing. For example, if you see an IOB value that looks odd, you should know to look at the insulin deliveries are stored in Health app. Knowing to pull an Issue Report when you see a problem so you can provide that if asked. Knowing [how to capture debugging logs if the developers ask for that kind of info](https://youtu.be/Ac4MguvUO7M) is also a good skill. 
